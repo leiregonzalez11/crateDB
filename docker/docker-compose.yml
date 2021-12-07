@@ -1,0 +1,8 @@
+version: "3.9"
+services:
+  python:
+    build: ..
+  crate:
+    image: 'crate'
+    ports:
+      - "4200:4200"
