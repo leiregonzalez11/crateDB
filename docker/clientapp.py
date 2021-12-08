@@ -3,10 +3,12 @@ import time
 
 from crate import client
 
-def createDatabase(cursor):
+def createDatabase(connection):
+
+    cursor = connection.cursor()
 
     try:
-        cursor.execute("CREATE TABLE coches (marca text, modelo text, anio int)")
+        cursor.execute("CREATE TABLE coches (id integer PRIMARY KEY, marca text, modelo text, anio int)")
         print("TABLE CREATED")
 
     except Exception as err:
@@ -14,29 +16,30 @@ def createDatabase(cursor):
         print("ERROR CREATING TABLE: %s" % err + "\n")
 
 
-def insert(cursor):
+def insert(connection):
+
+    cursor = connection.cursor()
 
     try:
 
         print("Añadiendo registros de coches a la base de datos... \n")
 
-        cursor.execute("INSERT INTO coches VALUES ('BMW', 'M3', 2021)")
+        cursor.execute("INSERT INTO coches VALUES (1, 'BMW', 'M3', 2021)")
         print("INSERT INTO coches VALUES ('BMW', 'M3', 2021)")
 
-        cursor.execute("INSERT INTO coches VALUES ('Ford', 'Focus', 2000)")
+        cursor.execute("INSERT INTO coches VALUES (2, 'Ford', 'Focus', 2000)")
         print("INSERT INTO coches VALUES ('FORD', 'Focus', 2000)")
 
-        cursor.execute("INSERT INTO coches VALUES ('Mercedes Benz', 'Clase G', 2017)")
+        cursor.execute("INSERT INTO coches VALUES (3, 'Mercedes Benz', 'Clase G', 2017)")
         print("INSERT INTO coches VALUES ('BMW', 'M3', 2017)")
 
-        cursor.execute("INSERT INTO coches VALUES ('Audi', 'R8', 2019)")
+        cursor.execute("INSERT INTO coches VALUES (4, 'Audi', 'R8', 2019)")
         print("INSERT INTO coches VALUES ('Audi', 'R8', 2019)")
 
-        cursor.execute("INSERT INTO coches VALUES ('Daewoo', 'Kalos', 2003)")
+        cursor.execute("INSERT INTO coches VALUES (5, 'Daewoo', 'Kalos', 2003)")
         print("INSERT INTO coches VALUES ('Daewoo', 'Kalos', 2003)")
 
-        print("INSERTS DONE \n")
-        print("Se han añadido los registros a la base de datos \n")
+        print("\n Se han añadido los registros a la base de datos \n")
 
     except Exception as err:
 
@@ -49,27 +52,36 @@ def registroCoches():
     #Creamos la conexión
 
     try:
-        connection = client.connect('crate:4200', timeout=5, error_trace=True, backoff_factor=0.2)
+        connection = client.connect("http://localhost:4200/", username="crate", timeout=5, error_trace=True, backoff_factor=0.2)
         print("CONNECTION DONE")
 
     except Exception as err:
         print("CONNECT ERROR: %s" % err)
 
-    cursor = connection.cursor()
 
-    createDatabase(cursor) #Creamos una tabla donde insertar los datos
-    insert(cursor) #Insertamos varios registros en la tabla creada
+    createDatabase(connection) #Creamos una tabla donde insertar los datos
+    insert(connection) #Insertamos varios registros en la tabla creada
 
     #Probamos que los datos se han insertado correctamente:
 
     try:
+        print("Sleeping for 10 seconds...")
         time.sleep(10)
-        print("El numero de elementos en la BD debería ser 5")
+        cursor = connection.cursor()
+        print("\n El número de elementos en la BD debería ser 5")
         cursor.execute("SELECT COUNT(*) FROM coches")
-        print("Y el numero de elementos en la bd es: " + cursor.fetchall())
+        result = cursor.fetchone()
+        print("Y el numero de elementos es: " + str(result))
+        print(" Los datos incluidos son: \n")
+        cursor.execute("SELECT id,marca,modelo,anio FROM coches order by id")
+        result = cursor.fetchall()
+        for element in result:
+            print("\t" + str(element) + "\n")
+
 
     except Exception as err:
-        print("No se han podido obtener los datos")
+
+        print("\n No se han podido obtener los datos \n")
 
 
 if __name__ == "__main__":
