@@ -1,5 +1,8 @@
-import sys
 import time
+import os.path as path
+import csv
+from datetime import datetime
+from random import random
 
 from crate import client
 
@@ -70,6 +73,35 @@ def registroCoches():
 
     except Exception as err:
         print("No se han podido obtener los datos")
+
+    # Ahora crearemos una tabla donde añadiremos cada 10 segundos un numero aleatorio.
+
+        try:
+            print("CREATE TABLE numero (numero int, datetime text)")
+            print("TABLE CREATED")
+
+        except Exception as err:
+            print("ERROR CREATING TABLE: %s" % err + "\n")
+
+        if not path.exists('DBrows.csv'):
+            with open('DBrows.csv', 'w', newline='') as csvfile:
+                fieldnames = ['numero', 'datetime']
+                writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+                writer.writeheader()
+
+        while True:
+            number = random.randint(1, 10000)
+            now = datetime.now()
+            date = now.date()  # coge la fecha de hoy
+            hour = now.time().__str__()  # coge la hora exacta
+
+            cursor.execute("INSERT INTO numero VALUES (?, ?)", number, str(now))
+
+            file = open('DBrows.csv', 'a', newline='')
+            file.write("Numero añadido: " + str(number) + " Hora: " + str(now) + "\n")
+            file.close()
+
+            time.sleep(30)
 
 
 if __name__ == "__main__":
