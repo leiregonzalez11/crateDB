@@ -21,6 +21,8 @@ def insert(connection):
     cursor = connection.cursor()
 
     try:
+        print("Sleeping for 10 seconds...")
+        time.sleep(10)
 
         print("Añadiendo registros de coches a la base de datos... \n")
 
