@@ -25,19 +25,19 @@ def insert(connection):
         print("Añadiendo registros de coches a la base de datos... \n")
 
         cursor.execute("INSERT INTO coches VALUES (1, 'BMW', 'M3', 2021)")
-        print("INSERT INTO coches VALUES ('BMW', 'M3', 2021)")
+        print("\t INSERT INTO coches VALUES (1, 'BMW', 'M3', 2021)")
 
         cursor.execute("INSERT INTO coches VALUES (2, 'Ford', 'Focus', 2000)")
-        print("INSERT INTO coches VALUES ('FORD', 'Focus', 2000)")
+        print("\t INSERT INTO coches VALUES (2, 'FORD', 'Focus', 2000)")
 
         cursor.execute("INSERT INTO coches VALUES (3, 'Mercedes Benz', 'Clase G', 2017)")
-        print("INSERT INTO coches VALUES ('BMW', 'M3', 2017)")
+        print("\t INSERT INTO coches VALUES (3, 'BMW', 'M3', 2017)")
 
         cursor.execute("INSERT INTO coches VALUES (4, 'Audi', 'R8', 2019)")
-        print("INSERT INTO coches VALUES ('Audi', 'R8', 2019)")
+        print("\t INSERT INTO coches VALUES (4, 'Audi', 'R8', 2019)")
 
         cursor.execute("INSERT INTO coches VALUES (5, 'Daewoo', 'Kalos', 2003)")
-        print("INSERT INTO coches VALUES ('Daewoo', 'Kalos', 2003)")
+        print("\t INSERT INTO coches VALUES (5, 'Daewoo', 'Kalos', 2003)")
 
         print("\n Se han añadido los registros a la base de datos \n")
 
