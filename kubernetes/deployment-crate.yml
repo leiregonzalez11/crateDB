@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-crate
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: cratedb
+  template:
+    metadata:
+      labels:
+        component: cratedb
+    spec:
+      initContainers:
+        - name: init-sysctl
+          image: busybox
+          imagePullPolicy: IfNotPresent
+          command: ["sysctl", "-w", "vm.max_map_count=262144"]
+          securityContext:
+            privileged: true
+      containers:
+        - name: cratedb
+          image: crate
+          ports:
+            - containerPort: 4200

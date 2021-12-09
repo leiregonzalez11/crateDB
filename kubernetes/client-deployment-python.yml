@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-deployment-python
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: python
+  template:
+    metadata:
+      labels:
+        component: python
+    spec:
+      containers:
+        - name: python
+          image: lgonzalez11/crate-db:latest
