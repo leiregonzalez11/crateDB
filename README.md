@@ -13,7 +13,7 @@ y escalar de forma sencilla.
 ## Instalación
 
 El primer paso para la instalación es crear un directorio donde alojar la
-aplicación. Después, descargarse el código fuente de éste repositorio y extraer
+aplicación. Después, descargarse el código fuente de este repositorio y extraer
 los archivos en el directorio creado. Una vez extraido, accederemos al directorio.
 
 
@@ -21,7 +21,7 @@ los archivos en el directorio creado. Una vez extraido, accederemos al directori
 
 Para ejecutar la aplicación, utilizaremos el siguiente comando:
 
-'docker-compose up --build -d'
+`docker-compose up --build -d´
 
 
 
