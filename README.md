@@ -10,6 +10,11 @@ utilizar SQL para procesar cualquier tipo de datos, estructurados o
 no estructurados, realizar consultas SQL a velocidad de tiempo real 
 y escalar de forma sencilla. 
 
+## Pre-Requisitos
+
+Tener todos los entornos instalados y en correcto funcionando. En caso de que no estén,
+la instalación de estos serán responsabilidad del usuario.
+
 
 ## Instalación :inbox_tray:
 
@@ -71,11 +76,6 @@ Ejecutar en una terminal:
 En otra terminal, ejecutar nuestra aplicación cliente (desde el directorio donde está la app):
     
     python3 clientapp.py
-
-#### NOTA 2
-
-Se da por hecho que se tienen todos los entornos instalados y en correcto funcionando. En caso de que no estén,
-la instalación de éstos serán responsabilidad del usuario.
 
 ## Autor
 

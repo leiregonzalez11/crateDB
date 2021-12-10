@@ -24,3 +24,6 @@ spec:
           image: crate
           ports:
             - containerPort: 4200
+         volumeMounts:
+           - name: cratevolume
+             mountPath: "data"
