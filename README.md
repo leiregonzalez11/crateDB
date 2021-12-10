@@ -21,7 +21,7 @@ realizarán las pruebas:
 - Vagrant
 
 Por otro lado, al utilizar Vagrant, se utilizará un proveedor de máquinas virtuales, 
-por lo que se requiere tener uno instalado.
+por lo que se requiere tener instalado Virtual Box.
 
 ## Instalación :inbox_tray:
 
