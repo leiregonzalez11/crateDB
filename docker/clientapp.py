@@ -18,7 +18,6 @@ def createDatabase(connection):
 
         print("ERROR CREATING TABLE: %s" % err + "\n")
 
-
 def insertStatements(connection):
 
     cursor = connection.cursor()
@@ -53,11 +52,10 @@ def insertStatements(connection):
 
 def guardarDatos(result):
 
-    with open('../docker-volumes/datos_db.txt', 'w') as fich:
+    with open('../docker/datos_db.txt', 'w') as fich:
         fich.write(str(datetime.now()) + '\n')
         for element in result:
             fich.write("Registro añadido a la BD: " + str(element) + '\n')
-
 
 def registroCoches():
 

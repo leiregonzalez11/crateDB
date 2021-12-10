@@ -1,0 +1,6 @@
+2021-12-10 16:54:35.251589
+Registro añadido a la BD: [1, 'BMW', 'M3', 2021]
+Registro añadido a la BD: [2, 'Ford', 'Focus', 2000]
+Registro añadido a la BD: [3, 'Mercedes Benz', 'Clase G', 2017]
+Registro añadido a la BD: [4, 'Audi', 'R8', 2019]
+Registro añadido a la BD: [5, 'Daewoo', 'Kalos', 2003]
