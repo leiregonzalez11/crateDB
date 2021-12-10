@@ -10,6 +10,7 @@ utilizar SQL para procesar cualquier tipo de datos, estructurados o
 no estructurados, realizar consultas SQL a velocidad de tiempo real 
 y escalar de forma sencilla. 
 
+
 ## Instalación :inbox_tray:
 
 El primer paso para la instalación es crear un directorio donde alojar la
@@ -39,9 +40,23 @@ Para ello, ejecutaremos el siguiente comando:
 
     python3 clientapp.py
 
-## Ejecución de la aplicación con Kubernetes :arrow_forward:
+Para detener la ejecución de los contenedores, simplemente ejecutar:
 
-## Ejecución de la aplicación con Vagrant :arrow_forward:
+    docker-compose down
+
+## Ejecución de la aplicación con Kubernetes :computer:
+
+## Ejecución de la aplicación con Vagrant (desde Windows) :pick: 
+
+Primero de todo, y al igual que hemos hecho con docker, accederemos al directorio
+donde se encuentran los ficheros vagrant:
+
+    cd ..
+    cd vagrant
+
+Después, para poner en marcha el Vagrant file, simplemente hacer:
+
+    vagrant up
 
 
 ## NOTA IMPORTANTE :bangbang:
@@ -57,19 +72,24 @@ En otra terminal, ejecutar nuestra aplicación cliente (desde el directorio dond
     
     python3 clientapp.py
 
+#### NOTA 2
+
+Se da por hecho que se tienen todos los entornos instalados y en correcto funcionando. En caso de que no estén,
+la instalación de éstos serán responsabilidad del usuario.
+
 ## Autor
 
 :woman_student: Leire Gonzalez Lopez
 
 
-:books: Proyecto realizado para la asignatura Administración de Sistemas del grado en Ingeniería Informatica
-de Gestión y Sistemas de Información, Escuela de Ingeniería de Bilbao.
+:books: Proyecto realizado para la asignatura **Administración de Sistemas** del grado en Ingeniería Informatica
+de Gestión y Sistemas de Información de la Escuela de Ingeniería de Bilbao, UPV/EHU.
 
 :man_teacher: Profesor: Unai López Novoa
 
 ## Más información
 
-Para más información, visitar la página web oficial: [Google] {https://crate.io/products/cratedb.}
+Para más información, visitar la página web oficial: https://crate.io/products/cratedb
 
 
 
