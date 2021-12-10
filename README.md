@@ -12,9 +12,13 @@ y escalar de forma sencilla.
 
 ## Pre-Requisitos
 
-Tener todos los entornos instalados y en correcto funcionando. En caso de que no estén,
-la instalación de estos serán responsabilidad del usuario.
+Tener todos los entornos instalados y funcionando correctamente. En caso de que no estén,
+la instalación de estos serán responsabilidad del usuario. Entornos en los que se
+realizarán las pruebas:
 
+- Docker
+- Kubernetes
+- Vagrant
 
 ## Instalación :inbox_tray:
 
@@ -45,6 +49,9 @@ Para ello, ejecutaremos el siguiente comando:
 
     python3 clientapp.py
 
+Si se quiere ver cómo se crea la tabla y se añaden los registros, se puede ver en el
+siguiente enlace: https://localhost:4200
+
 Para detener la ejecución de los contenedores, simplemente ejecutar:
 
     docker-compose down
@@ -62,6 +69,15 @@ donde se encuentran los ficheros vagrant:
 Después, para poner en marcha el Vagrant file, simplemente hacer:
 
     vagrant up
+
+Cuando esté en ejecución, podemos acceder a la máquina y ejecutar nuestra aplicación cliente:
+    
+    vagrant ssh
+    python3 clientapp.py
+
+Para detener la ejecución, simplemente hacer CTRL+C. Para apagar la máquina, ejecutar:
+
+    vagrant halt
 
 
 ## NOTA IMPORTANTE :bangbang:
