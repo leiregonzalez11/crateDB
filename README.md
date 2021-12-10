@@ -1,4 +1,4 @@
-# Aplicación con CrateDB
+# Aplicación cliente con CrateDB
 
 ## ¿Qué es CrateDB? :woman_shrugging:
 
@@ -19,6 +19,11 @@ los archivos en el directorio creado. Una vez extraido, accederemos al directori
 
 ## Ejecución de la aplicación con Docker :arrow_forward:
 
+Antes de nada, accederemos a la carpeta que contiene los ficheros docker
+para poder ponerlos en ejecución
+
+    cd docker
+
 Para ejecutar la aplicación, utilizaremos el siguiente comando:
 
     docker-compose up --build -d
@@ -29,10 +34,14 @@ se han creado, podemos utilizar el siguiente comando:
     docker ps
 
 Se mostrarán los contenedores que están activos en este momento, entre los que
-deberían estar en el paso anterior. Si todo ha ido bien, ahora podemos probar nuestra aplicación. 
+deberían estar los contenedores creados en el paso anterior. Si todo ha ido bien, ahora podemos probar nuestra aplicación. 
 Para ello, ejecutaremos el siguiente comando:
 
     python3 clientapp.py
+
+## Ejecución de la aplicación con Kubernetes :arrow_forward:
+
+## Ejecución de la aplicación con Vagrant :arrow_forward:
 
 
 ## NOTA IMPORTANTE :bangbang:
@@ -42,16 +51,25 @@ se puede probar realizando los siguientes pasos:
 
 Ejecutar en una terminal:
 
-    sudo docker run –-publish=4200:4200 --publish=5432:5432 crate
+    docker run -–publish 4200:4200 -–publish 5432:5432 crate -Cdiscovery.type=single-node
 
 En otra terminal, ejecutar nuestra aplicación cliente (desde el directorio donde está la app):
     
     python3 clientapp.py
 
-## Autor 
+## Autor
 
 :woman_student: Leire Gonzalez Lopez
 
+
+:books: Proyecto realizado para la asignatura Administración de Sistemas del grado en Ingeniería Informatica
+de Gestión y Sistemas de Información, Escuela de Ingeniería de Bilbao.
+
+:man_teacher: Profesor: Unai López Novoa
+
+## Más información
+
+Para más información, visitar la página web oficial: [Google] {https://crate.io/products/cratedb.}
 
 
 
