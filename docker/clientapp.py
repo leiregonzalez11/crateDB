@@ -11,12 +11,14 @@ def createDatabase(connection):
     cursor = connection.cursor()
 
     try:
+
+        print("Creando nueva tabla coches...")
         cursor.execute("CREATE TABLE coches (id integer primary key, marca text, modelo text, anio int)")
-        print("TABLE CREATED")
+        print("Tabla coches creada")
 
     except Exception as err:
 
-        print("ERROR CREATING TABLE: %s" % err + "\n")
+        print("Error creando la tabla: %s" % err + "\n")
 
 def insertStatements(connection):
 
@@ -24,7 +26,7 @@ def insertStatements(connection):
 
     try:
 
-        print("Sleeping for 10 seconds...")
+        print("\nSleeping for 10 seconds...\n")
         time.sleep(10)
 
         print("Añadiendo registros de coches a la base de datos... \n")
@@ -52,7 +54,7 @@ def insertStatements(connection):
 
 def guardarDatos(result):
 
-    with open('../docker/datos_db.txt', 'w') as fich:
+    with open('datos_db.txt', 'w') as fich:
         fich.write(str(datetime.now()) + '\n')
         for element in result:
             fich.write("Registro añadido a la BD: " + str(element) + '\n')
@@ -62,15 +64,15 @@ def registroCoches():
     #Creamos la conexión
 
     try:
-        print ("Trying to connect to database...")
+        print ("\nIntentando conectarse a la base de datos...")
         connection = client.connect("http://localhost:4200/", username="crate", timeout=10, error_trace=True,
                                     backoff_factor=0.2)
-        print("CONNECTION DONE")
+        print("CONNECTION DONE \n")
 
     except Exception as err:
         print("CONNECT ERROR: %s" % err)
 
-    #Eliminamos la tabla, si existiera, para no crear conflicto:
+    #Eliminamos la tabla, si existiera, para no crear conflictos:
 
     cursor = connection.cursor()
     cursor.execute("DROP TABLE IF EXISTS coches;")
@@ -81,7 +83,7 @@ def registroCoches():
     # Probamos que los datos se han insertado correctamente:
 
     try:
-        print("Sleeping for 10 seconds...")
+        print("Sleeping for 10 seconds...\n")
         time.sleep(10)
         cursor = connection.cursor()
         print("\nEl número de elementos en la BD debería ser 5")
