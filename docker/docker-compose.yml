@@ -1,10 +1,22 @@
 version: "3.9"
 services:
-        python:
+        clientapp:
                 build: .
-                restart: "on-failure"
+                volumes:
+                        - python_as:/app
         crate:
-                image: 'crate'
+                image: crate:latest
                 ports:
                         - "4200:4200"
-                restart: "on-failure"
+                volumes:
+                        - crate_as:/data
+                command:
+                        [ "crate","-Cnetwork.host=_site_",
+                                   "-Cnode.data=true",
+                                   "-Cdiscovery.type=single-node",]
+                environment:
+                        - CRATE_HEAP_SIZE=2g
+
+volumes:
+        python_as:
+        crate_as:
