@@ -1,6 +1,6 @@
 # Aplicación con CrateDB
 
-##¿Qué es CrateDB? woman_shrugging:
+## ¿Qué es CrateDB? :woman_shrugging:
 
 CrateDB es una base de datos SQL distribuida construida sobre una 
 base NoSQL, de código abierto, distribuido y compartido, desarrollado
@@ -12,12 +12,12 @@ y escalar de forma sencilla.
 
 ## Instalación
 
-El primer paso para la insaalación es crear un directorio donde alojar la
+El primer paso para la instalación es crear un directorio donde alojar la
 aplicación. Después, descargarse el código fuente de éste repositorio y extraer
 los archivos en el directorio creado. Una vez extraido, accederemos al directorio.
 
 
-##Ejecución de la aplicación con Docker
+## Ejecución de la aplicación con Docker
 
 Para ejecutar la aplicación, utilizaremos el siguiente comando:
 
