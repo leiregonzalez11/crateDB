@@ -20,6 +20,9 @@ realizarán las pruebas:
 - Kubernetes
 - Vagrant
 
+Por otro lado, al utilizar Vagrant, se utilizará un proveedor de máquinas virtuales, 
+por lo que se requiere tener uno instalado.
+
 ## Instalación :inbox_tray:
 
 El primer paso para la instalación es crear un directorio donde alojar la
@@ -50,13 +53,20 @@ Para ello, ejecutaremos el siguiente comando:
     python3 clientapp.py
 
 Si se quiere ver cómo se crea la tabla y se añaden los registros, se puede ver en el
-siguiente enlace: https://localhost:4200
+siguiente enlace:
+
+https://localhost:4200
 
 Para detener la ejecución de los contenedores, simplemente ejecutar:
 
     docker-compose down
 
 ## Ejecución de la aplicación con Kubernetes :computer:
+
+Los ficheros de Kubernetes están preparados para que sean ejecutados con Google Cloud Console
+. Para realizar el despliegue, ejecutar:
+
+    kubectl apply -f /kubernetes
 
 ## Ejecución de la aplicación con Vagrant (desde Windows) :pick: 
 
